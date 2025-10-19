@@ -11,26 +11,77 @@
       <h1>Hi, I`m Marian</h1>
       <h2>Front-end Developer</h2>
       <p>Building modern, responsive websites</p>
-      <button class="hire">Hire me</button>
-      <button class="view">View Projects</button>
+      <button class="hire" onclick="location.href='#contact'">Hire me</button>
+      <button class="view" onclick="location.href='#projects'">
+        View Projects
+      </button>
     </div>
     <div class="about">
-      <h1>About me</h1>
-      <img src="/img/Avatar.jpg" class="avatar" alt="Me">
-      <p>I enjoy bringing order to both tech and code. I have experience in system administration and can quickly spot and fix any technical issue. <br>
-Recently, I’ve been diving into front-end development — building responsive websites with HTML, CSS, and a bit of JavaScript, making sure everything looks modern and runs smoothly. <br>
-I also have hands-on experience with networks, hardware setup, and technical support, which helps me connect the “hardware” side with a clean and user-friendly interface.</p>
+      <h1>About Me</h1>
+      <div class="about-content">
+        <img src="/img/Avatar.jpg" class="avatar" alt="Me" />
+        <p>
+          I enjoy bringing order to both tech and code. I have experience in
+          system administration and can quickly spot and fix any technical
+          issue. <br />
+          Recently, I’ve been diving into front-end development — building
+          responsive websites with HTML, CSS, and a bit of JavaScript, making
+          sure everything looks modern and runs smoothly. <br />
+          I also have hands-on experience with networks, hardware setup, and
+          technical support, which helps me connect the “hardware” side with a
+          clean and user-friendly interface.
+        </p>
+      </div>
     </div>
     <div class="what_i_do">
-      <div class="box">
-        <p>&#127912 Web design</p>
-      </div>
-      <div class="box">
-        <p>&#128187 Front-end Dev</p>
-      </div>
-      <div class="box">
-        <p>&#9889 Responsive</p>
+      <h1>What I Do</h1>
+      <div class="boxes">
+        <p class="box">🎨 Web design</p>
+        <p class="box">💻 Front-end Dev</p>
+        <p class="box">⚡ Responsive</p>
       </div>
     </div>
+    <div class="projects" id="projects">
+      <h1>My Projects</h1>
+      <div class="projects_foto">
+        <img src="img/coming_soon.jpeg" alt="foto-1" />
+        <img src="img/coming_soon.jpeg" alt="foto-2" />
+      </div>
+      <div class="projects_foto">
+        <img src="img/coming_soon.jpeg" alt="foto-3" />
+        <img src="img/coming_soon.jpeg" alt="foto-4" />
+      </div>
+    </div>
+    <div class="contact" id="contact">
+      <h1>Contact Me</h1>
+      <form class="form" id="myForm">
+        <input placeholder="Name" type="text" name="name" required /><br />
+        <input placeholder="Email" type="email" name="email" required /><br />
+        <textarea placeholder="Message" name="message" required></textarea
+        ><br />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+    <div class="bottom">
+      <p>© 2025 Marian Harkavenko. All rights reserved.</p>
+    </div>
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycby8GxP6nok1Lbdhqs38xSjZMXT38b1_P_QITv7uV9JmsMJsgNhUpRCSzathY1FEBe8vIQ/exec";
+
+      document.getElementById("myForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(e.target).entries());
+
+        fetch(scriptURL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        })
+          .then(() => alert("✅ Дані відправлено!"))
+          .catch((err) => alert("❌ Помилка: " + err.message));
+      });
+    </script>
   </body>
 </html>
