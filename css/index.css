@@ -158,6 +158,11 @@ html {
   padding-bottom: 50px;
 }
 
+.projects_foto a {
+  width: 400px;
+  height: 200px;
+}
+
 .projects_foto img {
   width: 400px;
   height: 200px;
